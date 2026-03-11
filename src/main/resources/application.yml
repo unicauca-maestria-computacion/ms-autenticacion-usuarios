@@ -1,0 +1,21 @@
+server:
+  port: ${SPRING_SERVER_AUTH_PORT:8096}
+
+spring:
+  application:
+    name: usuarios
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: ${GOOGLE_CLIENT_ID:none}
+            client-secret: ${GOOGLE_CLIENT_SECRET:none}
+            scope: email, profile
+            redirectUri: "{baseUrl}/login/oauth2/code/{registrationId}"
+  debug: true
+kira:
+  api-url: "https://api.kira.edu/usuarios"
+app:
+  jwtSecret: ${SPRING_JWT_KEY:secretKey123}
+  jwtExpirationMs: ${SPRING_JWT_EXPIRATION:3600000}
