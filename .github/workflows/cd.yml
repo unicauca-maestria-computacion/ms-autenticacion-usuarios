@@ -103,16 +103,16 @@ jobs:
             --network-alias "autenticacion" \
             -p 8096:8096 \
             --restart "always" \
-            --cpus "0.5" \
-            --memory "256m" \
-            --memory-swap "256m" \
+            --cpus "0.25" \
+            --memory "192m" \
+            --memory-swap "192m" \
             --label project="practica-u" \
             --label service="autenticacion" \
             -e SPRING_PROFILES_ACTIVE="dev" \
             -e SPRING_SERVER_AUTH_PORT="8096" \
             -e SPRING_JWT_KEY="secretKey123" \
             -e SPRING_JWT_EXPIRATION="3600000" \
-            -e JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8 -XX:+UseSerialGC -Xms64m -Xmx192m" \
+            -e JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8 -XX:+UseSerialGC -Xms32m -Xmx128m" \
             $DOCKER_USERNAME/practica-profesional-autenticacion-usuarios:latest
 
       - name: Clean Old Images of This Service
